@@ -6,17 +6,19 @@ function computerPlay() {
     return choice;
 }
 
-let computerSelection = computerPlay();
+/*let computerSelection = computerPlay();
 
-/* Is it randomly choosing properly for the computer? */
+ Is it randomly choosing properly for the computer? 
 console.log(computerSelection);
-
-/* Prompt the player to enter a selection and store in a variable called playerSelection */
+*/
+/* Prompt the player to enter a selection and store in a variable called playerSelection 
 
 let playerSelection = prompt('Choose Wisely', '');
+*/
 
+/*
 console.log(playerSelection);
-/* Create a function that takes playerSelection and computerSelection and plays a round of the game */
+ Create a function that takes playerSelection and computerSelection and plays a round of the game */
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == 'rock' && computerSelection == 'scissors') {
@@ -26,11 +28,29 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
         result = (`You Win, ${playerSelection} beats ${computerSelection}!!!`);
     } else if (playerSelection == computerSelection) {
-        result = (`You Tied!!!`);
+        result = (`You Tied!!! ${computerSelection} equals ${playerSelection}`);
     } else {result = (`You loose, ${computerSelection} beats ${playerSelection}!!!`);
     }
     return result;
 }
 
+
+/*
 let roundEndMessage = playRound(playerSelection.toLowerCase, computerSelection.toLowerCase);
-console.log(roundEndMessage);
+console.log(roundEndMessage); 
+*/
+
+function game(computerPlay,playRound) {
+
+    for (let i = 0; i < 5; i++) {
+        let computerSelection = computerPlay();
+        console.log(computerSelection);
+        let playerSelection = prompt('Choose Wisely', '');
+        console.log(playerSelection);
+        let roundEndMessage = playRound(playerSelection, computerSelection);
+        console.log(roundEndMessage);  
+    }
+
+}
+
+let playGame = game(computerPlay,playRound);
