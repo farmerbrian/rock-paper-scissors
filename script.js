@@ -14,7 +14,9 @@ console.log(computerSelection);
 
 /* Prompt the player to enter a selection and store in a variable called playerSelection */
 
+let playerSelection = prompt('Choose Wisely', '');
 
+console.log(playerSelection);
 /* Create a function that takes playerSelection and computerSelection and plays a round of the game */
 
 /*
