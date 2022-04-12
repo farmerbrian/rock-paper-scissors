@@ -29,6 +29,8 @@ function playRound(playerSelection, computerSelection) {
         result = (`You Win, ${playerSelection} beats ${computerSelection}!!!`);
     } else if (playerSelection == computerSelection) {
         result = (`You Tied!!! ${computerSelection} equals ${playerSelection}`);
+    } else if (playerSelection != 'rock' || 'paper' || 'scissors') {
+        result = (`You loose ${playerSelection} is not a valid guess`);
     } else {result = (`You loose, ${computerSelection} beats ${playerSelection}!!!`);
     }
     return result;
@@ -36,7 +38,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 /*
-let roundEndMessage = playRound(playerSelection.toLowerCase, computerSelection.toLowerCase);
+let roundEndMessage = playRound(playerSelection.toLowerCase, computerSelection);
 console.log(roundEndMessage); 
 */
 
@@ -45,7 +47,7 @@ function game(computerPlay,playRound) {
     for (let i = 0; i < 5; i++) {
         let computerSelection = computerPlay();
         console.log(computerSelection);
-        let playerSelection = prompt('Choose Wisely', '');
+        let playerSelection = prompt('Choose Wisely', '').toLowerCase();
         console.log(playerSelection);
         let roundEndMessage = playRound(playerSelection, computerSelection);
         console.log(roundEndMessage);  
