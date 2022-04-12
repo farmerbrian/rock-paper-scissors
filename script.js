@@ -6,12 +6,12 @@ function computerPlay() {
     return choice;
 }
 
-
+/* Create global variables to store the score*/
 let playerScore = 0;
 let computerScore = 0;
 
 
-/* Create a function that takes playerSelection and computerSelection and plays a round of the game */
+/* Create a function that takes playerSelection and computerSelection and plays a round of the game and increments the score */
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == 'rock' && computerSelection == 'scissors') {
@@ -36,26 +36,31 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
-
-/*
-let roundEndMessage = playRound(playerSelection.toLowerCase, computerSelection);
-console.log(roundEndMessage); 
-*/
-
+/*Create a function that loops through the playRound function 5 times and displays the score */
 function game(computerPlay,playRound) {
 
     for (let i = 0; i < 5; i++) {
         let computerSelection = computerPlay();
-/* Is it actually radomly picking a valid option? */
-        console.log(computerSelection);
+/* Is it actually radomly picking a valid option? 
+        console.log(computerSelection);*/
 /* Prompt the player to enter a selection and store in a variable called playerSelection */
-        let playerSelection = prompt('Choose Wisely', '').toLowerCase();
-/* Is it assigning to the variable as all lowercase? */
-        console.log(playerSelection);
+        let playerSelection = prompt('ROCK, PAPER, SCISSORS... SHOOT!', '').toLowerCase();
+/* Is it assigning to the variable as all lowercase? 
+        console.log(playerSelection);*/
         let roundEndMessage = playRound(playerSelection, computerSelection);
-        console.log(roundEndMessage);  
+        console.log(roundEndMessage);
+        console.log('The score is - ' + playerScore, ' - ', computerScore); 
     }
-
+/* Time to display the score */    
+    if (playerScore > computerScore) {
+        alert(`Congratulations, You WON!!!  The score was ${playerScore} - ${computerScore}`);
+    } else if (playerScore < computerScore) {
+        alert(`Sorry, You LOST!!! The score was ${playerScore} - ${computerScore}`);
+    } else {
+        alert(`Sorry, you TIED. The score was ${playerScore} - ${computerScore}`);
+    }
+        
 }
 
+/* And apparently I have to actually tell it to run all this code, who knew? */
 let playGame = game(computerPlay,playRound);
