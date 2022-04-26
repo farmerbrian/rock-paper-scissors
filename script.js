@@ -12,6 +12,7 @@ let computerScore = 0;
 let playerSelecion;
 let playGame;
 let computerSelection = computerPlay();
+console.log(computerSelection);
 
 const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
@@ -20,7 +21,6 @@ const buttons = document.querySelectorAll('button');
     playerSelection = (button.id);
     playGame = playRound(playerSelection,computerPlay);
     console.log(playGame)
-            alert(button.id);
       });
     });
 
