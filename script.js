@@ -12,16 +12,18 @@ let computerScore = 0;
 let playerSelecion;
 let playGame;
 let computerSelection = computerPlay();
-console.log(computerSelection);
+const container = document.querySelector('#container');
+const heading = document.createElement('h2');
+heading.classList.add('heading');
 
 const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
     playerSelection = (button.id);
+    // Display score and announce winner in the HTML
     playGame = playRound(playerSelection,computerSelection);
-    console.log(playGame);
-    if ((playerScore || computerScore) <= 4) {
+        if ((playerScore || computerScore) <= 4) {
         heading.textContent = `The score is ${playerScore} to ${computerScore}!`;
     container.appendChild(heading); 
     } else if (playerScore > computerScore) { 
@@ -31,7 +33,6 @@ const buttons = document.querySelectorAll('button');
         heading.textContent = `You LOSE!! ${playerScore} to ${computerScore}`;
         container.appendChild(heading);  
     }
-   
       });
     });
 
@@ -62,21 +63,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-const container = document.querySelector('#container');
-
-const heading = document.createElement('h2');
-heading.classList.add('heading');
 
 
-// Time to display the score   
-    // if (playerScore > computerScore) {
-    //     alert(`Congratulations, You WON!!!  The score was ${playerScore} - ${computerScore}`);
-    // } else if (playerScore < computerScore) {
-    //     alert(`Sorry, You LOST!!! The score was ${playerScore} - ${computerScore}`);
-    // } else {
-    //     alert(`Sorry, you TIED. The score was ${playerScore} - ${computerScore}`);
-    // }
-        
 
 
 
