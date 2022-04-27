@@ -19,8 +19,19 @@ const buttons = document.querySelectorAll('button');
     // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
     playerSelection = (button.id);
-    playGame = playRound(playerSelection,computerPlay);
-    console.log(playGame)
+    playGame = playRound(playerSelection,computerSelection);
+    console.log(playGame);
+    if ((playerScore || computerScore) <= 4) {
+        heading.textContent = `The score is ${playerScore} to ${computerScore}!`;
+    container.appendChild(heading); 
+    } else if (playerScore > computerScore) { 
+        heading.textContent = `You WIN!! ${playerScore} to ${computerScore}`;
+        container.appendChild(heading);
+    } else {
+        heading.textContent = `You LOSE!! ${playerScore} to ${computerScore}`;
+        container.appendChild(heading);  
+    }
+   
       });
     });
 
@@ -51,6 +62,10 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+const container = document.querySelector('#container');
+
+const heading = document.createElement('h2');
+heading.classList.add('heading');
 
 
 // Time to display the score   
