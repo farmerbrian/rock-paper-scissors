@@ -24,9 +24,12 @@ const buttons = document.querySelectorAll('button');
     computerSelection = computerPlay();
     // Display score and announce winner in the HTML
     playGame = playRound(playerSelection,computerSelection);
-        if ((playerScore || computerScore) <= 4) {
+        if ((playerScore <= 4) && (computerScore <= 4)) {
         heading.textContent = `The score is You (${playerScore}) -  Computer (${computerScore})!`;
     container.appendChild(heading); 
+    } else if ((playerScore > 5) || (computerScore > 5)) {
+        playerScore = 0;
+        computerScore = 0;
     } else if (playerScore > computerScore) { 
         heading.textContent = `You WIN!! ${playerScore} to ${computerScore}`;
         container.appendChild(heading);
