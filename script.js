@@ -21,6 +21,7 @@ const buttons = document.querySelectorAll('button');
     // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
     playerSelection = (button.id);
+    computerSelection = computerPlay();
     // Display score and announce winner in the HTML
     playGame = playRound(playerSelection,computerSelection);
         if ((playerScore || computerScore) <= 4) {
